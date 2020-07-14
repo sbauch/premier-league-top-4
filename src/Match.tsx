@@ -19,11 +19,10 @@ const Match = ({ dispatch, match: { id, h, a, aScore, hScore } }) => {
 
   return (
     <div className="match">
-      <h1>{h}</h1>
+      <span>{h}</span>
       <input min="0" type='number' onChange={(e) => handleScore('hScore', e.target)} value={scoreState.hScore} />
-      <h1>vs</h1>
       <input min="0" type='number' onChange={(e) => handleScore('aScore', e.target)} value={scoreState.aScore} />
-      <h1>{a}</h1>
+      <span>{a}</span>
     </div>
   )
 }

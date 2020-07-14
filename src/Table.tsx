@@ -1,4 +1,5 @@
 import React from 'react';
+import FlipMove from 'react-flip-move';
 import './App.css';
 
 const TABLE = [
@@ -10,6 +11,18 @@ const TABLE = [
   { id: 'WOL', goalDiff: 11, points: 55 },
   { id: 'SHU', goalDiff: 5, points: 54 },
   { id: 'TOT', goalDiff: 9, points: 52 },
+  { id: 'ARS', goalDiff: 7, points: 50 },
+  { id: 'BUR', goalDiff: -8, points: 50 },
+  { id: 'EVE', goalDiff: -11, points: 45 },
+  { id: 'SOU', goalDiff: -13, points: 45 },
+  { id: 'NEW', goalDiff: -16, points: 43 },
+  { id: 'CRY', goalDiff: -15, points: 42 },
+  { id: 'BHA', goalDiff: -16, points: 36 },
+  { id: 'WHU', goalDiff: -15, points: 34 },
+  { id: 'WAT', goalDiff: -21, points: 34 },
+  { id: 'BOU', goalDiff: -24, points: 31 },
+  { id: 'AVL', goalDiff: -27, points: 30 },
+  { id: 'NOR', goalDiff: -41, points: 21 },
 ]
 
 const pointsForScore = (teamScore, opponentScore) => {
@@ -59,14 +72,16 @@ const Table = ({ fixtureState }) => {
         </tr>
       </thead>
       <tbody>
-        {sortedTable.map((club, index) => (
-          <tr key={club.id}>
-            <td>{index + 1}.&nbsp;{club.id}</td>
+        <FlipMove>
+          {sortedTable.map((club, index) => (
+            <tr key={club.id}>
+              <td>{index + 1}.&nbsp;{club.id}</td>
 
-            <td align="right">{club.goalDiff}</td>
-            <td align="right" >{club.points}</td>
-          </tr>
-        ))}
+              <td align="right">{club.goalDiff}</td>
+              <td align="right" >{club.points}</td>
+            </tr>
+          ))}
+        </FlipMove>
       </tbody>
     </table>
 
