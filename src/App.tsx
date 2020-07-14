@@ -98,7 +98,7 @@ function App({ queryParams, setQueryParams }) {
             </div>
           ))}
         </div>
-        <div className="table">
+        <div className="table-container">
           <Table fixtureState={fixtureState} />
         </div>
       </div>

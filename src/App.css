@@ -12,11 +12,56 @@
   align-items: center;
 }
 
-.table {
+.table-container{
   width: 100%;
-  font-variant-numeric: tabular-nums;
+
 }
 
-.table td {
-  width: 25%;
+.table {
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.row {
+  padding: 8px;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rank {
+  flex: 0 0 33%;
+  width: 33%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flip .row:nth-last-child(-n + 3) {
+  background-color: salmon;
+}
+
+.flip .row:nth-child(-n+4) {
+  background-color: chartreuse;
+}
+
+
+.row span {
+  display: inline-block;
+  width: 30px;
+  text-align: right;
+}
+
+.header span {
+  font-weight: bold;
+}
+
+.badge {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 8px;
 }

@@ -63,27 +63,27 @@ const Table = ({ fixtureState }) => {
   const sortedTable = tableState.sort((a, b) => b.points - a.points || b.goalDiff - a.goalDiff);
 
   return (
-    <table className="table">
-      <thead>
-        <tr>
-          <td></td>
-          <td align="right">GD</td>
-          <td align="right">PTS</td>
-        </tr>
-      </thead>
-      <tbody>
-        <FlipMove>
-          {sortedTable.map((club, index) => (
-            <tr key={club.id}>
-              <td>{index + 1}.&nbsp;{club.id}</td>
+    <div className="table">
+      <div className="row header">
+        <div className="rank"></div>
+        <div><span>GD</span></div>
+        <div><span>PTS</span></div>
+      </div>
+      <FlipMove className="flip">
+        {sortedTable.map((club, index) => (
+          <div className="row" key={club.id}>
+            <div className="rank">
+              <span>{index + 1}.</span>
+              <img className="badge" alt="team badge" src={require(`./resources/${club.id}.png`)} />
+              {club.id}
+            </div>
 
-              <td align="right">{club.goalDiff}</td>
-              <td align="right" >{club.points}</td>
-            </tr>
-          ))}
-        </FlipMove>
-      </tbody>
-    </table>
+            <div><span>{club.goalDiff}</span></div>
+            <div><span>{club.points}</span></div>
+          </div>
+        ))}
+      </FlipMove>
+    </div>
 
   )
 }
