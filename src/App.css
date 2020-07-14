@@ -6,21 +6,21 @@
   grid-column-gap: 1em;
 }
 
-.match {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
 
 .table-container{
   width: 100%;
-
+  position: relative;
 }
 
 .table {
+  position: fixed;
+  left: 50%;
+  right: 20%;
+  top: 10%;
   font-variant-numeric: tabular-nums;
   display: flex;
   flex-direction: column;
+  overflow: scroll;
 }
 
 
