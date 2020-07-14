@@ -1,7 +1,8 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import './App.css';
 import Match from './Match';
 import Table from './Table';
+import withQueryParams from 'react-router-query-params';
 
 const FIXTURES = {
   36: [
@@ -34,31 +35,70 @@ const updateFixtures = (state, { id, ...result }) => {
   ]
 }
 
-function App() {
-  const [fixtureState, disptachFixture] = useReducer(
+function App({ queryParams, setQueryParams }) {
+  const [bootstrapped, setBootstrapped] = useState(false);
+  const [fixtureState, dispatchFixture] = useReducer(
     updateFixtures,
-    Object.values(FIXTURES).flat()
+    Object.values(FIXTURES).flat(),
   );
 
+  useEffect(() => {
+    if (queryParams.s) {
+      JSON.parse(atob(queryParams.s)).forEach(f => {
+        dispatchFixture(f);
+      })
+
+      return
+    }
+  }, [queryParams.s])
+
+  useEffect(() => {
+    if (JSON.stringify(fixtureState) === JSON.stringify(Object.values(FIXTURES).flat())) {
+      setBootstrapped(true)
+      return;
+    }
+
+    const stateParam = btoa(JSON.stringify(fixtureState))
+
+    setQueryParams({ s: stateParam })
+    setBootstrapped(true)
+  }, [fixtureState, setQueryParams])
+
+  if (!bootstrapped) return null;
+
   return (
-    <div className="main">
-      <div className="fixtures">
-        {Object.entries(FIXTURES).map(([matchweek, fixtures]) => (
-          <div key={matchweek}>
-            <h3>Matchweek {matchweek}</h3>
-            <div>
-              {fixtures.map((f) => (
-                <Match key={f.id} dispatch={disptachFixture} match={f} />
-              ))}
+    <>
+      <div className="main">
+        <div className="fixtures">
+          {Object.entries(FIXTURES).map(([matchweek, fixtures]) => (
+            <div key={matchweek}>
+              <h3>Matchweek {matchweek}</h3>
+              <div>
+                {fixtures.map((f) => (
+                  <Match key={f.id} dispatch={dispatchFixture} match={{ ...f, ...fixtureState.find((fixture) => f.id === fixture.id) }} />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <div className="table">
+          <Table fixtureState={fixtureState} />
+        </div>
       </div>
-      <div className="table">
-        <Table fixtureState={fixtureState} />
-      </div>
-    </div>
+      <a href="/">Reset</a>
+    </>
   );
 }
 
-export default App;
+
+const ConnectedApp = withQueryParams({
+  stripUnknownKeys: true,
+  keys: {
+    s: {
+      default: '',
+      validate: value => true,
+    },
+  }
+})(App);
+
+export default ConnectedApp;

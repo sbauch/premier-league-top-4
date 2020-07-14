@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 
 const TABLE = [
   { id: 'LIV', goalDiff: 49, points: 93 },
@@ -39,7 +40,6 @@ const calcTable = (initialTable, results) => {
     })
   })
 
-  console.log(table)
   return table;
 };
 
@@ -50,9 +50,26 @@ const Table = ({ fixtureState }) => {
   const sortedTable = tableState.sort((a, b) => b.points - a.points || b.goalDiff - a.goalDiff);
 
   return (
-    <div className="table">
-      <pre>{JSON.stringify(sortedTable, null, 2)}</pre>
-    </div>
+    <table className="table">
+      <thead>
+        <tr>
+          <td></td>
+          <td align="right">GD</td>
+          <td align="right">PTS</td>
+        </tr>
+      </thead>
+      <tbody>
+        {sortedTable.map((club, index) => (
+          <tr key={club.id}>
+            <td>{index + 1}.&nbsp;{club.id}</td>
+
+            <td align="right">{club.goalDiff}</td>
+            <td align="right" >{club.points}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
   )
 }
 export default Table;
