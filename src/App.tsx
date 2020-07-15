@@ -7,10 +7,10 @@ import withQueryParams from 'react-router-query-params';
 const FIXTURES = {
   36: [
     { id: 'CHENOR', h: 'CHE', a: 'NOR', hScore: 1, aScore: 0 },
-    { id: 'BURWOL', h: 'BUR', a: 'WOL', hScore: 0, aScore: 0 },
-    { id: 'MCIBOU', h: 'MCI', a: 'BOU', hScore: 2, aScore: 0 },
-    { id: 'NEWTOT', h: 'NEW', a: 'TOT', hScore: 0, aScore: 1 },
-    { id: 'ARSLIV', h: 'ARS', a: 'LIV', hScore: 0, aScore: 0 },
+    { id: 'BURWOL', h: 'BUR', a: 'WOL', hScore: 1, aScore: 1 },
+    { id: 'MCIBOU', h: 'MCI', a: 'BOU', hScore: 2, aScore: 1 },
+    { id: 'NEWTOT', h: 'NEW', a: 'TOT', hScore: 1, aScore: 3 },
+    { id: 'ARSLIV', h: 'ARS', a: 'LIV', hScore: 2, aScore: 1 },
     { id: 'EVEAVL', h: 'EVE', a: 'AVL', hScore: 0, aScore: 0 },
     { id: 'LEISHU', h: 'LEI', a: 'SHU', hScore: 0, aScore: 0 },
     { id: 'CRYMUN', h: 'CRY', a: 'MUN', hScore: 0, aScore: 0 },
