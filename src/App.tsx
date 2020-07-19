@@ -21,7 +21,7 @@ const FIXTURES = {
   37: [
     { id: 'NORBUR', h: 'NOR', a: 'BUR', hScore: 0, aScore: 2 },
     { id: 'BOUSOU', h: 'BOU', a: 'SOU', hScore: 0, aScore: 2 },
-    { id: 'TOTLEI', h: 'TOT', a: 'LEI', hScore: 2, aScore: 0 },
+    { id: 'TOTLEI', h: 'TOT', a: 'LEI', hScore: 3, aScore: 0 },
     { id: 'BHANEW', h: 'BHA', a: 'NEW', hScore: 0, aScore: 0 },
     { id: 'SHUEVE', h: 'SHU', a: 'EVE', hScore: 0, aScore: 0 },
     { id: 'WOLCRY', h: 'WOL', a: 'CRY', hScore: 0, aScore: 0 },
