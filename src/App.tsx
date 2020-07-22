@@ -27,7 +27,7 @@ const FIXTURES = {
     { id: 'WOLCRY', h: 'WOL', a: 'CRY', hScore: 2, aScore: 0 },
     { id: 'WATMCI', h: 'WAT', a: 'MCI', hScore: 0, aScore: 4 },
     { id: 'AVLARS', h: 'AVL', a: 'ARS', hScore: 1, aScore: 0 },
-    { id: 'MUNWHU', h: 'MUN', a: 'WHU', hScore: 0, aScore: 0 },
+    { id: 'MUNWHU', h: 'MUN', a: 'WHU', hScore: 1, aScore: 1 },
     { id: 'LIVCHE', h: 'LIV', a: 'CHE', hScore: 0, aScore: 0 },
   ],
   38: [
